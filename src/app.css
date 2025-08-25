@@ -1,0 +1,528 @@
+/* -------- DZ Crew Tablet (Simplified Professional Design) -------- */
+:root{
+  /* لوحة ألوان DZ Crew البسيطة */
+  --bg: #0a0e14;
+  --surface: #0f1419;
+  --surface-elevated: #151b21;
+  --border: #1e2832;
+  --border-hover: #2a3441;
+  --text-primary: #ffffff;
+  --text-secondary: #b8c5d1;
+  --text-muted: #7a8691;
+  --accent: #00d4ff;
+  --accent2: #ff1e00;
+  --accent-dark: #0099cc;
+  --accent-soft: rgba(0, 212, 255, 0.1);
+
+  /* أبعاد */
+  --radius: 12px;
+  --radius-lg: 16px;
+  --spacing: 16px;
+  --spacing-sm: 8px;
+  --spacing-lg: 24px;
+  --spacing-xl: 35px;
+
+  /* تأثيرات */
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  /* خطوط */
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+
+    --text-primary:  #eaf6ff;
+  --text-secondary:#c6d7e4;
+  --text-muted:    #9cb0bf;
+
+  /* صناديق شفافة وحدود فاتحة */
+  --surface:           rgba(255,255,255,.02);
+  --surface-elevated:  rgba(255,255,255,.03);
+  --border:            rgba(255,255,255,.14);
+  --border-hover:      rgba(255,255,255,.22);
+
+  /* أكسنت موحّد */
+  --accent:       #027b91;
+  --accent-dark:  #005c83;
+  --accent2:      #ff1e00;
+  --accent-soft:  rgba(0,209,245,.10);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font);
+  /* background: var(--bg); */
+  color: var(--text-primary);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hidden { display: none !important; }
+
+/* التابلت */
+.screen {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(150vw, 1500px);
+  aspect-ratio: 16/10;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: radial-gradient(80.56% 128.89% at 50% 0,#0a5da1 0,#0d242b 100%);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* شريط الحالة */
+.statusbar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-xl);
+  background: var(--surface-elevated);
+  border-bottom: 1px solid var(--border);
+}
+
+.time {
+  font: 600 14px/1 var(--font);
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+.pill1 {
+  height: 36px;
+  padding: 0 var(--spacing);
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font: 600 13px/1 var(--font);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  transition: all 0.2s ease;
+}
+.pill2 {
+  height: 36px;
+  padding: 0 var(--spacing);
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font: 600 13px/1 var(--font);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  transition: all 0.2s ease;
+}
+
+.pill1:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+.pill2:hover {
+  border-color: var(--accent2);
+  color: var(--accent2);
+  transform: translateY(-1px);
+}
+
+.pill--ghost {
+  width: 36px;
+  padding: 0;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.view {
+  flex: 1;
+  padding: var(--spacing-xl);
+  margin-left: 2%;
+  overflow: auto;
+}
+
+/* قسم الترحيب */
+.welcome {
+  margin-bottom: var(--spacing-xl);
+}
+
+.welcome .hello {
+  font: 600 35px/1.2 var(--font);
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+.welcome .player {
+  font: 700 58px/1.1 var(--font);
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+/* شبكة التطبيقات */
+.apps {
+  display: grid;
+  gap: var(--spacing-lg);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.app {
+  position: relative;
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.app:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.app__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  margin-bottom: var(--spacing);
+  position: relative;
+  overflow: hidden;
+}
+
+.app__icon::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius);
+  background: conic-gradient(from 120deg, var(--ringA), var(--ringB), var(--ringA));
+  filter: blur(4px);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.app__icon img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.app__title {
+  font: 600 16px/1.3 var(--font);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.app__hint {
+  font: 500 13px/1.4 var(--font);
+  color: var(--text-muted);
+}
+
+.app--locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.app--locked:hover {
+  transform: none;
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+.ribbon {
+  position: absolute;
+  top: var(--spacing);
+  right: var(--spacing);
+  height: 24px;
+  padding: 0 var(--spacing-sm);
+  border-radius: 6px;
+  font: 600 11px/1 var(--font);
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* نظام الـ Slots المبسط */
+.devices-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  height: 100%;
+}
+
+.device-zone {
+  background: var(--surface-elevated);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.device-zone--dragover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.zone-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+  margin-bottom: var(--spacing-lg);
+}
+
+.zone-title {
+  font: 600 18px/1.2 var(--font);
+  color: var(--text-primary);
+}
+
+.zone-count {
+  font: 500 12px/1 var(--font);
+  color: var(--text-muted);
+  background: var(--surface);
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-left: auto;
+}
+
+/* شبكة الـ Slots */
+.slots-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing);
+  min-height: 300px;
+}
+
+.slot {
+  aspect-ratio: 1;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  display: grid;
+  place-items: center;
+  position: relative;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.slot:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.slot--filled {
+  border-style: solid;
+  border-color: var(--accent);
+  background: var(--surface-elevated);
+}
+
+.slot--dragover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: scale(1.05);
+}
+
+.chip {
+  width: 100%;
+  height: 100%;
+  border-radius: calc(var(--radius) - 2px);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  cursor: grab;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.chip:hover {
+  transform: scale(1.05);
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+}
+
+.chip:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+}
+
+.chip--dragging {
+  opacity: 0.5;
+  transform: rotate(5deg) scale(1.1);
+  z-index: 1000;
+  box-shadow: var(--shadow-lg);
+}
+
+.chip img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.slot-placeholder {
+  font-size: 24px;
+  color: var(--text-muted);
+  opacity: 0.3;
+}
+
+/* أزرار */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  height: 36px;
+  padding: 0 var(--spacing);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-elevated);
+  color: var(--text-secondary);
+  font: 600 13px/1 var(--font);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* تحسينات الاستجابة */
+@media (max-width: 768px) {
+  .screen {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    aspect-ratio: unset;
+  }
+  
+  .devices-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .slots-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .welcome .player {
+    font-size: 36px;
+  }
+  
+  .apps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+html, body, .view, .panel, .xp-wrap, .skills-grid, .apps, .devices-container {
+  /* اللون: thumb / track */
+  scrollbar-color: var(--accent) transparent;
+  /* سماكة رفيعة */
+  scrollbar-width: thin;
+}
+
+/* =================================
+   Global Scrollbar (WebKit & Blink)
+   ================================= */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;               /* شفاف ليظهر الخلفية */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+  border-radius: 999px;
+  /* حدود شفافة تعطي فراغ حول الـthumb */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 1px 6px rgba(0,0,0,.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #35ddff, var(--accent));
+  box-shadow: 0 2px 8px rgba(0,0,0,.32);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #7af0ff, #18a9d8);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* =========================================
+   Variant 1: scroll-slim (أنحف للمناطق الضيقة)
+   استخدمها على أي حاوية: <div class="scroll-slim">
+   ========================================= */
+.scroll-slim {
+  scrollbar-width: thin;
+}
+.scroll-slim::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-slim::-webkit-scrollbar-thumb {
+  border-width: 2px;
+}
+
+/* =========================================
+   Variant 2: scroll-inset (مسار رقيق بحد خفيف)
+   يعطي إحساس مجرى داخلي؛ مناسب للـpanels الطويلة
+   ========================================= */
+.scroll-inset {
+  scrollbar-width: thin;
+  /* في فيرفكس لا مسار مُخصص، نبقي اللون نفسه */
+}
+.scroll-inset::-webkit-scrollbar-track {
+  background: rgba(255,255,255,.03);
+  box-shadow: inset 0 0 0 1px var(--border); /* حد خفيف */
+  border-radius: 12px;
+}
+.scroll-inset::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+  border: 2px solid rgba(255,255,255,.06);
+  background-clip: padding-box;
+}
+
+/* ==========================
+   اقتراح تطبيق سريع:
+   ========================== */
+/* واجهة التصفح الرئيسية */
+.view { overflow: auto; }
+/* لو حبيت النحافة: */
+/* أو القناة الداخلية: */
+.panel { overflow: auto; }
